@@ -1,0 +1,6 @@
+<div class="row">
+  <%= "#{serie.team_a.name} vs #{serie.team_b.name}" %>
+  <% serie.matches.each do |m| %>
+    <%= m.id %>
+  <% end %>
+</div>

@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>PlayoffProde</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,7 +10,23 @@
   </head>
 
   <body>
-    <p id="notice"><%= notice %></p>
-    <%= yield %>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <div class="navbar-brand">
+            Playoff Prode
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="container-fluid">
+      <% if notice %>
+        <p class="alert alert-success alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <%= notice %>
+        </p>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>

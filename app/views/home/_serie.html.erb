@@ -1,6 +1,7 @@
 <div class="row">
   <%= "#{serie.team_a.name} vs #{serie.team_b.name}" %>
   <% serie.matches.each do |m| %>
-    <%= m.id %>
+    <% stat = Stat.find_by(user: current_user, match: m) || Stat.create!(user: current_user, match: m) %>
+    <%= render "stats/form", stat: stat %>
   <% end %>
 </div>

@@ -6,4 +6,8 @@ class Serie < ApplicationRecord
   def is_east
     team_a.conference == "east" && team_b.conference == "east"
   end
+
+  def is_west
+    team_a.conference == "west" && team_b.conference == "west"
+  end
 end

@@ -1,18 +1,18 @@
-class Match < ApplicationRecord
-  belongs_to :serie
+class Stat < ApplicationRecord
+  belongs_to :user
+  belongs_to :match
   belongs_to :winner, class_name: "Team", optional: true
   belongs_to :most_points, class_name: "Player", optional: true
   belongs_to :most_assists, class_name: "Player", optional: true
   belongs_to :most_rebounds, class_name: "Player", optional: true
 
   def team_a
-    serie.team_a
+    match.team_a
   end
   def team_b
-    serie.team_b
+    match.team_b
   end
   def players_options
-    players = serie.team_a.players.to_a.concat(serie.team_b.players.to_a)
-    players.map{|p| [p.name, p.id]}
+    match.players_options
   end
 end

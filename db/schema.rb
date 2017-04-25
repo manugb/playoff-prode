@@ -10,12 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170423221523) do
+ActiveRecord::Schema.define(version: 20170424230335) do
 
   create_table "matches", force: :cascade do |t|
     t.integer  "serie_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "winner_id"
+    t.integer  "most_points_id"
+    t.integer  "most_assists_id"
+    t.integer  "most_rebounds_id"
     t.index ["serie_id"], name: "index_matches_on_serie_id"
   end
 
@@ -32,6 +36,17 @@ ActiveRecord::Schema.define(version: 20170423221523) do
     t.datetime "updated_at", null: false
     t.integer  "team_a_id"
     t.integer  "team_b_id"
+  end
+
+  create_table "stats", force: :cascade do |t|
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "user_id"
+    t.integer  "match_id"
+    t.integer  "winner_id"
+    t.integer  "most_points_id"
+    t.integer  "most_assists_id"
+    t.integer  "most_rebounds_id"
   end
 
   create_table "teams", force: :cascade do |t|

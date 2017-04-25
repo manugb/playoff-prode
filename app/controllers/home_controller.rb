@@ -12,5 +12,6 @@ class HomeController < ApplicationController
 
   def dashboard
     @east_series = Serie.all.select(&:is_east)
+    @west_series = Serie.all.select(&:is_west)
   end
 end

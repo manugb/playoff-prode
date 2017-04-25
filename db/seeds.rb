@@ -6,6 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Team.delete_all
+Serie.delete_all
+Match.delete_all
+Player.delete_all
+
 cavaliers = Team.create!(name: "Cavaliers", conference: "east")
 Player.create!(name: "LeBron James", team: cavaliers)
 Player.create!(name: "Kyrie Irving", team: cavaliers)
@@ -29,6 +34,6 @@ Player.create!(name: "JaVale McGee", team: warriors)
 Player.create!(name: "Klay Thompson", team: warriors)
 
 serie1 = Serie.create!(team_a: cavaliers, team_b: warriors)
-7.times do
+7.times do |time|
   Match.create!(serie: serie1)
 end

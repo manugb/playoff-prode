@@ -9,10 +9,15 @@ class Stat < ApplicationRecord
   def team_a
     match.team_a
   end
+
   def team_b
     match.team_b
   end
+
   def players_options
-    match.players_options
+    [
+      [team_a.name, team_a.players_options],
+      [team_b.name, team_b.players_options]
+    ]
   end
 end

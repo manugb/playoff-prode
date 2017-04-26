@@ -17,6 +17,91 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+$cavaliers: #860038;
+$bulls: #CE1141;
+$wizards: #002566;
+$raptors: #CE1141;
+$warriors: #006BB6;
+$spurs: #B6BFBF;
+$rockets: #CE1141;
+$clippers:  #ED174C;
+
+$east: #0067ac;
+$west: #ed254b;
+
+
 .container-fluid {
   padding: 0 20px;
+}
+
+.page-header {
+  margin: 0 0 10px;
+  padding: 0;
+  text-align: center;
+  color: white;
+}
+
+table {
+  th {
+    text-align: center;
+  }
+  .form-control {
+    padding: 6px 3px;
+  }
+  .game-row-data {
+    vertical-align: middle !important;
+  }
+  .row-data {
+    width: 25%;
+    padding: 8px 4px !important;
+  }
+}
+
+.cavaliers {
+ color: $cavaliers;
+}
+.bulls {
+ color: $bulls;
+}
+.wizards {
+ color: $wizards;
+}
+.raptors {
+ color: $raptors;
+}
+.warriors {
+ color: $warriors;
+}
+.spurs {
+ color: $spurs;
+}
+.rockets {
+ color: $rockets;
+}
+.clippers {
+  color: $clippers;
+}
+
+@mixin panel-header($a, $b, $a-color, $b-color) {
+  .#{$a}-#{$b} {
+    background: linear-gradient(to left, #{$b-color} 50%, #{$a-color} 50%);
+  }
+}
+
+.panel {
+  @include panel-header("warriors", "clippers", $warriors, $clippers);
+  @include panel-header("rockets", "spurs", $rockets, $spurs);
+  @include panel-header("cavaliers", "raptors", $cavaliers, $raptors);
+  @include panel-header("bulls", "wizards", $bulls, $wizards);
+
+  .panel-heading {
+    color: white;
+  }
+}
+
+.west-container {
+  background-color: $west;
+}
+.east-container {
+  background-color: $east;
 }

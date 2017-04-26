@@ -1,7 +1,24 @@
-<div class="row">
-  <%= "#{serie.team_a.name} vs #{serie.team_b.name}" %>
-  <% serie.matches.each do |m| %>
-    <% stat = Stat.find_by(user: current_user, match: m) || Stat.create!(user: current_user, match: m) %>
-    <%= render "stats/form", stat: stat %>
-  <% end %>
+<div class="panel panel-default">
+  <div class="panel-heading text-center <%= "#{serie.team_a.name.downcase}-#{serie.team_b.name.downcase}" %>">
+    <%= "#{serie.team_a.name} vs #{serie.team_b.name}" %>
+  </div>
+
+  <table class="table">
+    <thead>
+      <th>#</th>
+      <th>Ganador</th>
+      <th>Mas Puntos</th>
+      <th>Mas Asistencias</th>
+      <th>Mas Rebotes</th>
+    </thead>
+    <tbody>
+      <% serie.matches.each_with_index do |m, i| %>
+        <% stat = Stat.find_by(user: current_user, match: m) || Stat.create!(user: current_user, match: m) %>
+        <tr>
+          <%= render "stats/form", stat: stat, game: i+1 %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
 </div>

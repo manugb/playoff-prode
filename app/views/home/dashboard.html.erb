@@ -1,12 +1,16 @@
-<div class="row">
-  <div class="col-md-6">
-    <div class="center-text">Conferencia Oeste</div>
+<div class="row text-center">
+  <div class="col-md-6 west-container">
+    <div class="page-header">
+      <h1>Conferencia Oeste</h1>
+    </div>
     <% @west_series.each do |s| %>
       <%= render "serie", serie: s %>
     <% end %>
   </div>
-  <div class="col-md-6">
-    <div class="center-text">Conferencia Este</div>
+  <div class="col-md-6 east-container">
+    <div class="page-header">
+      <h1>Conferencia Este</h1>
+    </div>
     <% @east_series.each do |s| %>
       <%= render "serie", serie: s %>
     <% end %>

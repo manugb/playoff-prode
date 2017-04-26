@@ -11,8 +11,4 @@ class Match < ApplicationRecord
   def team_b
     serie.team_b
   end
-  def players_options
-    players = serie.team_a.players.to_a.concat(serie.team_b.players.to_a)
-    players.map{|p| [p.name, p.id]}
-  end
 end

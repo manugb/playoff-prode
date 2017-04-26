@@ -11,31 +11,22 @@
     </div>
   <% end %>
 
-  <div class="table-responsive">
-    <table class="table">
-      <thead>
-        <th>Ganador</th>
-        <th>Mas Puntos</th>
-        <th>Mas Asistencias</th>
-        <th>Mas Rebotes</th>
-      </thead>
-      <tbody>
-        <td>
-          <%= f.select(:winner_id, [[stat.team_a.name, stat.team_a.id], [stat.team_b.name, stat.team_b.id]], {}, {class: "form-control"}) %>
-        </td>
-        <td>
-          <%= f.select(:most_points_id, stat.players_options, {}, {class: "form-control"}) %>
-        </td>
-        <td>
-          <%= f.select(:most_assists_id, stat.players_options, {}, {class: "form-control"}) %>
-        </td>
-        <td>
-          <%= f.select(:most_rebounds_id, stat.players_options, {}, {class: "form-control"}) %>
-        </td>
-        <td>
-          <%= f.submit %>
-        </td>
-      </tbody>
-    </table>
-  </div>
+  <td class="game-row-data">
+    <%= game %>
+  </td>
+  <td class="row-data">
+    <%= f.select(:winner_id, [[stat.team_a.name, stat.team_a.id], [stat.team_b.name, stat.team_b.id]], {}, {class: "form-control"}) %>
+  </td>
+  <td class="row-data">
+    <%= f.select(:most_points_id, grouped_options_for_select(stat.players_options), {}, {class: "form-control"}) %>
+  </td>
+  <td class="row-data">
+    <%= f.select(:most_assists_id, grouped_options_for_select(stat.players_options), {}, {class: "form-control"}) %>
+  </td>
+  <td class="row-data">
+    <%= f.select(:most_rebounds_id, grouped_options_for_select(stat.players_options), {}, {class: "form-control"}) %>
+  </td>
+  <td class="game-row-data">
+    <%= f.submit "Ok" %>
+  </td>
 <% end %>

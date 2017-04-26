@@ -29,9 +29,8 @@ $clippers:  #ED174C;
 $east: #0067ac;
 $west: #ed254b;
 
-
-.container-fluid {
-  padding: 0 20px;
+.navbar {
+  margin-bottom: 0;
 }
 
 .page-header {
@@ -82,20 +81,40 @@ table {
   color: $clippers;
 }
 
-@mixin panel-header($a, $b, $a-color, $b-color) {
-  .#{$a}-#{$b} {
-    background: linear-gradient(to left, #{$b-color} 50%, #{$a-color} 50%);
+@mixin bgcolor($team, $color) {
+  &.#{$team} {
+    background-color: $color;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
   }
 }
 
 .panel {
-  @include panel-header("warriors", "clippers", $warriors, $clippers);
-  @include panel-header("rockets", "spurs", $rockets, $spurs);
-  @include panel-header("cavaliers", "raptors", $cavaliers, $raptors);
-  @include panel-header("bulls", "wizards", $bulls, $wizards);
-
   .panel-heading {
     color: white;
+  }
+
+  .flex-header {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .team-header {
+    @include bgcolor("warriors", $warriors);
+    @include bgcolor("clippers", $clippers);
+    @include bgcolor("spurs", $spurs);
+    @include bgcolor("rockets", $rockets);
+    @include bgcolor("cavaliers", $cavaliers);
+    @include bgcolor("raptors", $raptors);
+    @include bgcolor("bulls", $bulls);
+    @include bgcolor("wizards", $wizards);
+
+    width: 100%;
+
+    .team-logo {
+      height: 50px;
+    }
   }
 }
 

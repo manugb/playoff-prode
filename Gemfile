@@ -6,6 +6,8 @@ git_source(:github) do |repo_name|
 end
 
 gem 'bootstrap-sass'
+# Gemfile
+gem 'activeadmin', github: 'activeadmin'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

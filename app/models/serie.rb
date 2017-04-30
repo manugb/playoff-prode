@@ -5,9 +5,13 @@ class Serie < ApplicationRecord
 
   after_create :create_matches
 
+  def name
+    "#{team_a.name} vs #{team_b.name}"
+  end
+
   def create_matches
     7.times do |time|
-      Match.create!(serie: self)
+      Match.create!(serie: self, game: time+1)
     end
   end
 

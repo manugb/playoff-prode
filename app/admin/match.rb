@@ -12,6 +12,8 @@ ActiveAdmin.register Match do
 #   permitted
 # end
 
+permit_params :active, :winner, :most_points, :most_assists, :most_rebounds
+
 index do
   id_column
   column :serie

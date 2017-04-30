@@ -10,16 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170424230335) do
+ActiveRecord::Schema.define(version: 20170430113212) do
 
   create_table "matches", force: :cascade do |t|
     t.integer  "serie_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.integer  "winner_id"
     t.integer  "most_points_id"
     t.integer  "most_assists_id"
     t.integer  "most_rebounds_id"
+    t.boolean  "active",           default: true
     t.index ["serie_id"], name: "index_matches_on_serie_id"
   end
 

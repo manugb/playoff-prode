@@ -8,7 +8,12 @@ class Match < ApplicationRecord
   def team_a
     serie.team_a
   end
+
   def team_b
     serie.team_b
+  end
+
+  def can_edit_stats?
+    active
   end
 end

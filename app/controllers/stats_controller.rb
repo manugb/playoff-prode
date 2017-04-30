@@ -42,10 +42,10 @@ class StatsController < ApplicationController
   def update
     respond_to do |format|
       if @stat.update(stat_params)
-        format.html { redirect_to @stat, notice: 'Stat was successfully updated.' }
+        format.html { redirect_to :dashboard, notice: 'Tu apuesta fue ingresada.' }
         format.json { render :show, status: :ok, location: @stat }
       else
-        format.html { render :edit }
+        format.html { redirect_to :dashboard }
         format.json { render json: @stat.errors, status: :unprocessable_entity }
       end
     end

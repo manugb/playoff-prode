@@ -18,13 +18,14 @@
 @import "bootstrap";
 
 $cavaliers: #860038;
-$bulls: #CE1141;
 $wizards: #002566;
 $raptors: #CE1141;
 $warriors: #006BB6;
 $spurs: #B6BFBF;
 $rockets: #CE1141;
 $clippers:  #ED174C;
+$celtics:  #008348;
+$jazz:  #002B5C;
 
 $east: #0067ac;
 $west: #ed254b;
@@ -53,14 +54,19 @@ table {
   .row-data {
     width: 25%;
     padding: 8px 4px !important;
+
+    &.no-edit {
+      vertical-align: middle;
+      height: 51px;
+    }
   }
 }
 
 .cavaliers {
  color: $cavaliers;
 }
-.bulls {
- color: $bulls;
+.celtics {
+ color: $celtics;
 }
 .wizards {
  color: $wizards;
@@ -79,6 +85,9 @@ table {
 }
 .clippers {
   color: $clippers;
+}
+.jazz {
+  color: $jazz;
 }
 
 @mixin bgcolor($team, $color) {
@@ -107,8 +116,9 @@ table {
     @include bgcolor("rockets", $rockets);
     @include bgcolor("cavaliers", $cavaliers);
     @include bgcolor("raptors", $raptors);
-    @include bgcolor("bulls", $bulls);
+    @include bgcolor("celtics", $celtics);
     @include bgcolor("wizards", $wizards);
+    @include bgcolor("jazz", $jazz);
 
     width: 100%;
 

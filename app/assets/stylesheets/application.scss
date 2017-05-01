@@ -54,10 +54,10 @@ table {
     width: 25%;
     padding: 8px 4px !important;
 
-    &.no-edit {
-      vertical-align: middle;
-      height: 51px;
-    }
+  }
+  .no-edit {
+    vertical-align: middle;
+    height: 51px;
   }
 }
 

@@ -15,16 +15,16 @@
     <%= game %>
   </td>
   <td class="row-data">
-    <%= f.select(:winner_id, [[stat.team_a.name, stat.team_a.id], [stat.team_b.name, stat.team_b.id]], {}, {class: "form-control"}) %>
+    <%= f.select(:winner_id, [[stat.team_a.name, stat.team_a.id], [stat.team_b.name, stat.team_b.id]], {include_blank: true, prompt: "No hay"}, {class: "form-control"}) %>
   </td>
   <td class="row-data">
-    <%= f.select(:most_points_id, grouped_options_for_select(stat.players_options, stat.most_points_id), {}, {class: "form-control"}) %>
+    <%= f.select(:most_points_id, grouped_options_for_select(stat.players_options, stat.most_points_id), {include_blank: true, prompt: "No hay"}, {class: "form-control"}) %>
   </td>
   <td class="row-data">
-    <%= f.select(:most_assists_id, grouped_options_for_select(stat.players_options, stat.most_assists_id), {}, {class: "form-control"}) %>
+    <%= f.select(:most_assists_id, grouped_options_for_select(stat.players_options, stat.most_assists_id), {include_blank: true, prompt: "No hay"}, {class: "form-control"}) %>
   </td>
   <td class="row-data">
-    <%= f.select(:most_rebounds_id, grouped_options_for_select(stat.players_options, stat.most_rebounds_id), {}, {class: "form-control"}) %>
+    <%= f.select(:most_rebounds_id, grouped_options_for_select(stat.players_options, stat.most_rebounds_id), {include_blank: true, prompt: "No hay"}, {class: "form-control"}) %>
   </td>
   <td class="game-row-data">
     <%= f.submit "Ok", class: "btn btn-default" %>

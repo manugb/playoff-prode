@@ -9,7 +9,7 @@
       </thead>
       <tbody>
         <% @user_points.each_with_index do |up, i| %>
-          <tr>
+          <tr class="<%= up[:name] == current_user.name ? 'active' : '' %>">
             <td><%= i+1 %></td>
             <td><%= up[:name] %></td>
             <td><%= up[:points] %></td>

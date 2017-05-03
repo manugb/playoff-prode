@@ -20,4 +20,30 @@ class Stat < ApplicationRecord
       [team_b.name, team_b.players_options]
     ]
   end
+
+  def serie
+    match.serie
+  end
+
+  def points
+    total = 0
+    if match.winner && match.most_points && match.most_assists && match.most_rebounds
+      if winner == match.winner
+        total += 5
+      end
+      if most_points == match.most_points
+        total += 3
+      end
+      if most_assists == match.most_assists
+        total += 1
+      end
+      if most_rebounds == match.most_rebounds
+        total += 1
+      end
+      if winner == match.winner && most_points == match.most_points && most_assists == match.most_assists && most_rebounds == match.most_rebounds
+        total += 2
+      end
+    end
+    total
+  end
 end

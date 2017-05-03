@@ -14,6 +14,9 @@
       <div class="navbar-header">
         <%= link_to "Playoff Prode", dashboard_path, class: "navbar-brand" %>
       </div>
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Tabla de Puntos", points_path %></li>
+      </ul>
     </nav>
     <div class="container-fluid">
       <% if notice %>

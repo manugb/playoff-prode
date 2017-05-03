@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   root "home#check_user"
   get "login" => "home#login"
   get "dashboard" => "home#dashboard"
+  get "points" => "home#points"
 end

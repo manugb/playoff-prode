@@ -14,4 +14,8 @@ class HomeController < ApplicationController
     @east_series = Serie.all.select(&:is_east)
     @west_series = Serie.all.select(&:is_west)
   end
+
+  def points
+    @user_points = User.all.map {|u| {name: u.name, points: u.points}}
+  end
 end

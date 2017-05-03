@@ -22,4 +22,32 @@ class Serie < ApplicationRecord
   def is_west
     team_a.conference == "west" && team_b.conference == "west"
   end
+
+  def winner
+    a_win_matches = matches.where(winner: team_a)
+    b_win_matches = matches.where(winner: team_b)
+    if (a_win_matches.count === 4)
+      team_a
+    elsif (b_win_matches.count === 4)
+      team_b
+    else
+      nil
+    end
+  end
+
+  def loser
+    if winner
+      if team_a == winner
+        team_b
+      else
+        team_a
+      end
+    else
+      nil
+    end
+  end
+
+  def loser_win_matches
+    matches.where(winner: loser).count
+  end
 end

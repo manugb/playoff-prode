@@ -16,6 +16,6 @@ class HomeController < ApplicationController
   end
 
   def points
-    @user_points = User.all.map {|u| {name: u.name, points: u.points}}
+    @user_points = User.all.map {|u| {name: u.name, points: u.points}}.sort {|x,y| y[:points] <=> x[:points] }
   end
 end

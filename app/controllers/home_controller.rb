@@ -11,8 +11,15 @@ class HomeController < ApplicationController
   end
 
   def dashboard
-    @east_series = Serie.all.select(&:is_east)
-    @west_series = Serie.all.select(&:is_west)
+    final_series = Serie.where(round: "conference_finals")
+    @east_serie = final_series.select(&:is_east).first
+    @west_serie = final_series.select(&:is_west).first
+  end
+
+  def semis
+    semis_series = Serie.where(round: "semis")
+    @east_series = semis_series.select(&:is_east)
+    @west_series = semis_series.select(&:is_west)
   end
 
   def points

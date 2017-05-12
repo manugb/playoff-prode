@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170430120126) do
+ActiveRecord::Schema.define(version: 20170512214203) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -48,10 +48,11 @@ ActiveRecord::Schema.define(version: 20170430120126) do
   end
 
   create_table "series", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.integer  "team_a_id"
     t.integer  "team_b_id"
+    t.string   "round",      default: "semis"
   end
 
   create_table "stats", force: :cascade do |t|
@@ -76,6 +77,7 @@ ActiveRecord::Schema.define(version: 20170430120126) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "mvp_id"
   end
 
 end

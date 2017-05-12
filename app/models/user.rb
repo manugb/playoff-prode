@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :stats
+  has_one :mvp, class_name: "Player", foreign_key: "mvp_id"
 
   validates :name, uniqueness: true
 

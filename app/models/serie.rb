@@ -50,4 +50,8 @@ class Serie < ApplicationRecord
   def loser_win_matches
     matches.where(winner: loser).count
   end
+
+  def teams
+    [team_a, team_b]
+  end
 end

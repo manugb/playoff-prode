@@ -10,12 +10,16 @@
     <div class="page-header">
       <h1>Conferencia Oeste</h1>
     </div>
-    <%= render "serie", serie: @west_serie %>
+    <% if @west_serie %>
+      <%= render "serie", serie: @west_serie %>
+    <% end %>
   </div>
   <div class="col-md-6 east-container">
     <div class="page-header">
       <h1>Conferencia Este</h1>
     </div>
-    <%= render "serie", serie: @east_serie %>
+    <% if @east_serie %>
+      <%= render "serie", serie: @east_serie %>
+    <% end %>
   </div>
 </div>

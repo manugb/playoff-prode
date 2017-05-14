@@ -16,11 +16,11 @@ class User < ApplicationRecord
     total = 0
 
     Serie.all.each do |serie|
-      if serie.winner && stats.where(winner: serie.winner).count === 4
+      if serie.winner && stats.where(winner: serie.winner, match: serie.matches).count === 4
         total += 30
       end
 
-      if serie.loser && stats.where(winner: serie.loser).count === serie.loser_win_matches
+      if serie.loser && stats.where(winner: serie.loser, match: serie.matches).count === serie.loser_win_matches
         total += 15
       end
     end

@@ -1,6 +1,6 @@
 <div class="row text-center">
   <div class="mvp">
-    <h3>Por 50 puntos ¿Quien va a ser el Finals MVP?</h3>
+    <h3>Por 25 puntos ¿Quien va a ser el Finals MVP?</h3>
     <%= form_for(current_user) do |f| %>
       <%= f.select(:mvp_id, Player.mvps_options , {prompt: "No hay"}, {class: "form-control mvp-select"}) %>
       <%= f.submit "Ok", class: "btn btn-default" %>

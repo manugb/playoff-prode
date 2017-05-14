@@ -1,11 +1,11 @@
 class User < ApplicationRecord
   has_many :stats
-  has_one :mvp, class_name: "Player", foreign_key: "mvp_id"
+  belongs_to :mvp, class_name: "Player", foreign_key: "mvp_id"
 
   validates :name, uniqueness: true
 
   def points
-    serie_points + match_points
+    serie_points + match_points + mvp_points
   end
 
   def match_points
@@ -26,5 +26,14 @@ class User < ApplicationRecord
     end
 
     total
+  end
+
+  def mvp_points
+    the_finals = Serie.the_finals
+    if mvp && the_finals &&  mvp == the_finals.mvp
+      25
+    else
+      0
+    end
   end
 end

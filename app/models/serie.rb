@@ -54,4 +54,8 @@ class Serie < ApplicationRecord
   def teams
     [team_a, team_b]
   end
+
+  def self.the_finals
+    Serie.find_by(round: "the_finals")
+  end
 end

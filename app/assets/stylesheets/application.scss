@@ -29,6 +29,10 @@ $jazz:  #002B5C;
 $east: #0067ac;
 $west: #ed254b;
 
+html, body {
+  height: 100%;
+}
+
 .navbar {
   margin-bottom: 0;
 }
@@ -125,6 +129,10 @@ table {
       height: 50px;
     }
   }
+}
+
+.full-height {
+  height: 100%;
 }
 
 .west-container {

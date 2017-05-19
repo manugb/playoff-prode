@@ -1,12 +1,5 @@
-<div class="row text-center">
-  <div class="mvp">
-    <h3>Por 25 puntos ¿Quien va a ser el Finals MVP?</h3>
-    <%= form_for(current_user) do |f| %>
-      <%= f.select(:mvp_id, Player.mvps_options , {prompt: "No hay"}, {class: "form-control mvp-select"}) %>
-      <%= f.submit "Ok", class: "btn btn-default" %>
-    <% end %>
-  </div>
-  <div class="col-md-6 west-container">
+<div class="row text-center full-height">
+  <div class="col-md-6 west-container full-height">
     <div class="page-header">
       <h1>Conferencia Oeste</h1>
     </div>
@@ -14,7 +7,7 @@
       <%= render "serie", serie: @west_serie %>
     <% end %>
   </div>
-  <div class="col-md-6 east-container">
+  <div class="col-md-6 east-container full-height">
     <div class="page-header">
       <h1>Conferencia Este</h1>
     </div>

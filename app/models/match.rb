@@ -1,4 +1,6 @@
 class Match < ApplicationRecord
+  default_scope { order(game: :desc) }
+
   belongs_to :serie
   belongs_to :winner, class_name: "Team", optional: true
   belongs_to :most_points, class_name: "Player", optional: true

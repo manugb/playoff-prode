@@ -11,7 +11,7 @@ class HomeController < ApplicationController
   end
 
   def dashboard
-    @the_finals = Serie.where(round: "the_finals").first
+    @the_finals = Serie.the_finals
   end
 
   def finals

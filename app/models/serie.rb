@@ -2,7 +2,7 @@ class Serie < ApplicationRecord
   belongs_to :team_a, class_name: "Team", foreign_key: "team_a_id"
   belongs_to :team_b, class_name: "Team", foreign_key: "team_b_id"
   has_many :matches
-  has_one :mvp, class_name: "Player", foreign_key: "mvp_id"
+  belongs_to :mvp, class_name: "Player", foreign_key: "mvp_id"
 
   after_create :create_matches
 

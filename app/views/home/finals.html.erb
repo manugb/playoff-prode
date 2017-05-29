@@ -1,0 +1,18 @@
+<div class="row text-center full-height">
+  <div class="col-md-6 west-container full-height">
+    <div class="page-header">
+      <h1>Conferencia Oeste</h1>
+    </div>
+    <% if @west_serie %>
+      <%= render "serie", serie: @west_serie %>
+    <% end %>
+  </div>
+  <div class="col-md-6 east-container full-height">
+    <div class="page-header">
+      <h1>Conferencia Este</h1>
+    </div>
+    <% if @east_serie %>
+      <%= render "serie", serie: @east_serie %>
+    <% end %>
+  </div>
+</div>

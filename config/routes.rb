@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   get "dashboard" => "home#dashboard"
   get "points" => "home#points"
   get "semis" => "home#semis"
+  get "finals" => "home#finals"
 end

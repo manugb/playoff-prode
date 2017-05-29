@@ -35,6 +35,7 @@ html, body {
 
 .navbar {
   margin-bottom: 0;
+  border-radius: 0 !important;
 }
 
 .page-header {
@@ -153,4 +154,13 @@ table {
   color: white;
   margin-top: -20px;
   padding: 15px;
+}
+
+.the-finals {
+  background-color: #000;
+}
+.the-finals-logo {
+  height: 100px;
+  background-position: center;
+  background-image: url("//cdn.nba.net/assets/playoffs/2017/images/leftrail/RW_LeftRailHeader_Finals_bkg_xxxhdpi.jpg");
 }

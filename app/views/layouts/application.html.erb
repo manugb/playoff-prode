@@ -12,13 +12,8 @@
   <body>
     <nav class="navbar navbar-inverse">
       <div class="navbar-header">
-        <%= link_to "Playoff Prode", dashboard_path, class: "navbar-brand" %>
+        <%= link_to "NBA Playoff Prode", root_path, class: "navbar-brand" %>
       </div>
-      <ul class="nav navbar-nav">
-        <li><%= link_to "Finals", finals_path %></li>
-        <li><%= link_to "Semis", semis_path %></li>
-        <li><%= link_to "Tabla de Puntos", points_path %></li>
-      </ul>
     </nav>
     <div class="container-fluid full-height">
       <% if notice %>

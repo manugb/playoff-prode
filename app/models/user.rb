@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
   has_many :stats
   belongs_to :mvp, class_name: "Player", foreign_key: "mvp_id"
 

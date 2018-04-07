@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <% if current_user.team.present? %>
+    <div class="row text-center">
+      <div class="col-xs-12">
+        <%= image_tag "icons/#{current_user.team.name.downcase}.svg", class: "team-logo #{current_user.team.name.downcase}" %>
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-xs-12 <%= current_user.team.name.downcase %> team-name">
+        <%= current_user.team.name %>
+      </div>
+    </div>
+  <% else %>
+    <div class="row text-center">
+      <div class="col-xs-12">
+        Elegi a tu equipo favorito
+      </div>
+    </div>
+  <% end %>
+    <div class="row text-center">
+      <div class="col-xs-12">
+        <%= current_user.name %>
+      </div>
+    </div>
+  <div class="row">
+    <div class="col-xs-6">
+      <%= link_to 'Salir', destroy_user_session_path, method: :delete, class: "btn btn-link" %>
+    </div>
+    <div class="col-xs-6">
+      <%= link_to 'Editar perfil', edit_user_path(current_user), class: "btn btn-default" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <%= render "points" %>
+    </div>
+  </div>
+</div>

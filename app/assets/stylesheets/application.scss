@@ -18,18 +18,19 @@
 
 $cavaliers: #860038;
 $wizards: #002566;
-$raptors: #CE1141;
-$warriors: #006BB6;
-$spurs: #B6BFBF;
-$rockets: #CE1141;
-$clippers:  #ED174C;
-$celtics:  #008348;
-$jazz:  #002B5C;
+$raptors: #ce1141;
+$warriors: #006bb6;
+$spurs: #b6bfbf;
+$rockets: #ce1141;
+$clippers: #ed174c;
+$celtics: #008348;
+$jazz: #002b5c;
 
 $east: #0067ac;
 $west: #ed254b;
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -58,7 +59,6 @@ table {
   .row-data {
     width: 25%;
     padding: 8px 4px !important;
-
   }
   .no-edit {
     vertical-align: middle;
@@ -67,25 +67,25 @@ table {
 }
 
 .cavaliers {
- color: $cavaliers;
+  color: $cavaliers;
 }
 .celtics {
- color: $celtics;
+  color: $celtics;
 }
 .wizards {
- color: $wizards;
+  color: $wizards;
 }
 .raptors {
- color: $raptors;
+  color: $raptors;
 }
 .warriors {
- color: $warriors;
+  color: $warriors;
 }
 .spurs {
- color: $spurs;
+  color: $spurs;
 }
 .rockets {
- color: $rockets;
+  color: $rockets;
 }
 .clippers {
   color: $clippers;
@@ -163,4 +163,41 @@ table {
   height: 100px;
   background-position: center;
   background-image: url("//cdn.nba.net/assets/playoffs/2017/images/leftrail/RW_LeftRailHeader_Finals_bkg_xxxhdpi.jpg");
+}
+
+//---------------------
+// User menu
+//---------------------
+.user-menu {
+  background-color: #090909;
+  color: white;
+  font-size: 15px;
+
+  .team-logo {
+    border: 2px solid white;
+    border-radius: 50%;
+
+    @include bgcolor("warriors", $warriors);
+    @include bgcolor("clippers", $clippers);
+    @include bgcolor("spurs", $spurs);
+    @include bgcolor("rockets", $rockets);
+    @include bgcolor("cavaliers", $cavaliers);
+    @include bgcolor("raptors", $raptors);
+    @include bgcolor("celtics", $celtics);
+    @include bgcolor("wizards", $wizards);
+    @include bgcolor("jazz", $jazz);
+  }
+
+  .team-name {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .row {
+    margin-top: 10px;
+  }
+
+  .puntos {
+    color: black;
+  }
 }

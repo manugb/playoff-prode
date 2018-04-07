@@ -52,7 +52,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to :dashboard, notice: 'MVP Seleccionado' }
+        format.html { redirect_to :dashboard, notice: 'Perfil Guardado!' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :dashboard }
@@ -79,6 +79,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :mvp_id)
+      params.require(:user).permit(:name, :team_id)
     end
 end

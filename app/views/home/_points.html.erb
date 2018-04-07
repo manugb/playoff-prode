@@ -1,0 +1,18 @@
+<div class="table-responsive">
+  <table class="table text-center">
+    <thead>
+      <th>#</th>
+      <th>Usuario</th>
+      <th>Puntos</th>
+    </thead>
+    <tbody>
+      <% @user_points.each_with_index do |up, i| %>
+        <tr class="puntos <%= up[:name] == current_user.name ? 'active' : '' %>">
+          <td><%= i+1 %></td>
+          <td><%= up[:name] %></td>
+          <td><%= up[:points] %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

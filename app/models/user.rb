@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   validates :name, uniqueness: true
 
-  after_create send_welcome_email
+  after_create :send_welcome_email
 
   def send_welcome_email
     ApplicationMailer.welcome_email(self).deliver_now

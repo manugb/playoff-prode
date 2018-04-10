@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Bienvenido al NBA Playoff Prode, <%= @user.email %></h1>
+    <p>Te has registrado exitosamente.</p>
+    <br />
+    <p> Por favor termina de <%= link_to 'elegir tu nickname y tu equipo favorito', edit_user_path(current_user) %>.</p>
+    <br />
+    <p>Gracias por participar y mucha suerte!!!</p>
+  </body>
+</html>

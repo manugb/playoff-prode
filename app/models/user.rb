@@ -7,6 +7,12 @@ class User < ApplicationRecord
 
   validates :name, uniqueness: true
 
+  after_create send_welcome_email
+
+  def send_welcome_email
+    ApplicationMailer.welcome_email(self).deliver_now
+  end
+
   def points
     serie_points + match_points + mvp_points
   end

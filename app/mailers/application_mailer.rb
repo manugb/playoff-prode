@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'info@nbaplayoffprode.com'
+  default from: 'nba-playoff-prode@nbaplayoffprode.com'
   layout 'mailer'
 
   def welcome_email(user)

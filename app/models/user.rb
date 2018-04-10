@@ -5,8 +5,6 @@ class User < ApplicationRecord
   belongs_to :mvp, class_name: "Player", foreign_key: "mvp_id"
   belongs_to :team
 
-  validates :name, uniqueness: true
-
   after_create :send_welcome_email
 
   def send_welcome_email

@@ -1,18 +1,17 @@
-<div class="table-responsive">
-  <table class="table text-center">
-    <thead>
-      <th>#</th>
-      <th>Usuario</th>
-      <th>Puntos</th>
-    </thead>
-    <tbody>
-      <% @user_points.each_with_index do |up, i| %>
-        <tr class="puntos <%= up[:name] == current_user.name ? 'active' : '' %>">
-          <td><%= i+1 %></td>
-          <td><%= up[:name] %></td>
-          <td><%= up[:points] %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+<% @user_points = [{name: 'lala', points: 3}, {name: 'lala', points: 3}, {name: 'lala', points: 3}, {name: 'lala', points: 3}, {name: 'lala', points: 3}, {name: 'lala', points: 3}, {name: 'lala', points: 3}, {name: 'lele', points: 3}, {name: 'manugb', points: 3}, {name: 'lila', points: 3}, {name: 'lale', points: 3}] %>
+<div class="points">
+  <% @user_points.each_with_index do |up, i| %>
+    <%
+      extra_css = ''
+      extra_css += ' first' if i == 0
+      extra_css += ' second' if i == 1
+      extra_css += ' third' if i == 2
+      extra_css += ' active' if up[:name] == current_user.name
+    %>
+    <div class="user <%= extra_css %>">
+      <div><%= i+1 %></div>
+      <div><%= up[:name] %></div>
+      <div><%= up[:points] %></div>
+    </div>
+  <% end %>
 </div>

@@ -29,13 +29,22 @@ $jazz: #002b5c;
 $east: #0067ac;
 $west: #ed254b;
 
-html,
 body {
+  overflow: hidden;
+}
+
+.content-container {
+  overflow: hidden;
+}
+
+.app-container {
+  overflow: hidden;
   height: 100%;
+  width: 100%;
 }
 
 .navbar {
-  margin-bottom: 0;
+  margin: 0;
   border-radius: 0 !important;
 }
 
@@ -168,10 +177,28 @@ table {
 //---------------------
 // User menu
 //---------------------
+.menu-container {
+  height: 100%;
+  overflow: hidden;
+}
 .user-menu {
   background-color: #090909;
   color: white;
   font-size: 15px;
+  overflow-y: auto;
+
+  ::-webkit-scrollbar {
+    width: 1px; /* for vertical scrollbars */
+    height: 1px; /* for horizontal scrollbars */
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    /* barra scroll */
+    background: lighten(#090909, 15%);
+    border-radius: 20px;
+  }
 
   .team-logo {
     border: 2px solid white;
@@ -197,7 +224,31 @@ table {
     margin-top: 10px;
   }
 
-  .puntos {
-    color: black;
+  .points {
+    margin-top: 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+
+    .user {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      padding: 6px 3px;
+    }
+
+    .first {
+      background-color: gold;
+    }
+    .second {
+      background-color: silver;
+    }
+    .third {
+      background-color: brown; // bronze
+    }
+    .active {
+      font-size: 15px;
+      font-weight: bold;
+    }
   }
 }

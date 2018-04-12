@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  include Current
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :stats

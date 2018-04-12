@@ -1,5 +1,5 @@
 class Match < ApplicationRecord
-  default_scope { order(game: :asc) }
+  default_scope { where("created_at > ?", Date.new(Date.today.year)).order(game: :asc) }
 
   belongs_to :serie
   belongs_to :winner, class_name: "Team", optional: true

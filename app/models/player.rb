@@ -1,4 +1,6 @@
 class Player < ApplicationRecord
+  include Current
+
   belongs_to :team
 
   def self.mvps_options

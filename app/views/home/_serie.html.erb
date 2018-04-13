@@ -1,36 +1,6 @@
-<div class="panel panel-default">
-  <div class="flex-header">
-    <div class="team-header <%= serie.team_a.name.downcase %>">
-      <%= image_tag "icons/#{serie.team_a.name.downcase}.svg", class: "team-logo" %>
-      <%= serie.team_a.name %>
-    </div>
-    <div class="team-header <%= serie.team_b.name.downcase %>">
-      <%= image_tag "icons/#{serie.team_b.name.downcase}.svg", class: "team-logo" %>
-      <%= serie.team_b.name %>
-    </div>
-  </div>
-
-  <div class="table-responsive">
-    <table class="table">
-      <thead>
-        <th>#</th>
-        <th>Ganador</th>
-        <th>Mas Puntos</th>
-        <th>Mas Asistencias</th>
-        <th>Mas Rebotes</th>
-      </thead>
-      <tbody>
-        <% serie.matches.each do |m| %>
-          <% stat = Stat.find_by(user: current_user, match: m) || Stat.create!(user: current_user, match: m) %>
-          <tr>
-            <% if m.can_edit_stats? %>
-              <%= render "stats/form", stat: stat, game: m.game %>
-            <% else %>
-              <%= render "stats/show", stat: stat, game: m.game %>
-            <% end %>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-</div>
+<% serie_stat = SerieStat.find_by(user: current_user, serie: serie) || SerieStat.create!(user: current_user, serie: serie) %>
+<% if serie.can_edit_stats? %>
+  <%= render "serie_stats/form", serie_stat: serie_stat %>
+<% else %>
+  <%= render "serie_stats/show", serie_stat: serie_stat %>
+<% end %>

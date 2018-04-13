@@ -144,6 +144,9 @@ table {
 .full-height {
   height: 100%;
 }
+.no-padding {
+  padding: 0;
+}
 
 .west-container {
   background-color: $west;
@@ -249,6 +252,68 @@ table {
     .active {
       font-size: 15px;
       font-weight: bold;
+    }
+  }
+}
+
+//---------------------
+// Brackets
+//---------------------
+
+.brackets {
+  display: grid;
+  grid-gap: 10px 5px;
+  grid-template-columns: 130px 130px 130px 130px 130px 130px 130px;
+
+  .west-quarter-1 {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .west-quarter-2 {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .west-quarter-3 {
+    grid-column: 1;
+    grid-row: 3;
+  }
+  .west-quarter-4 {
+    grid-column: 1;
+    grid-row: 4;
+  }
+  .east-quarter-1 {
+    grid-column: 7;
+    grid-row: 1;
+  }
+  .east-quarter-2 {
+    grid-column: 7;
+    grid-row: 2;
+  }
+  .east-quarter-3 {
+    grid-column: 7;
+    grid-row: 3;
+  }
+  .east-quarter-4 {
+    grid-column: 7;
+    grid-row: 4;
+  }
+
+  .serie-stat {
+    display: flex;
+
+    .teams {
+      display: flex;
+      flex-direction: column;
+
+      .team {
+        .team-logo {
+          height: 60px;
+        }
+      }
+    }
+
+    .btn-ok {
+      align-self: center;
     }
   }
 }

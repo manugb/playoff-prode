@@ -1,0 +1,44 @@
+<%
+  is_east = serie_stat.serie.is_east
+%>
+<%= form_for(serie_stat) do |f| %>
+  <% if serie_stat.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(serie_stat.errors.count, "error") %> prohibited this serie stat from being saved:</h2>
+
+      <ul>
+      <% serie_stat.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="serie-stat">
+    <% if is_east %>
+      <%= f.submit "OK", class: "btn btn-default btn-xs btn-ok" %>
+      <div class="teams">
+        <div class="team">
+          <%= f.select(:team_a_wins, [0,1,2,3,4]) %>
+          <%= image_tag "icons/#{serie_stat.team_a.name.downcase}.svg", class: "team-logo" %>
+        </div>
+        <div class="team">
+          <%= f.select(:team_b_wins, [0,1,2,3,4]) %>
+          <%= image_tag "icons/#{serie_stat.team_b.name.downcase}.svg", class: "team-logo" %>
+        </div>
+      </div>
+    <% else %>
+      <div class="teams">
+        <div class="team">
+          <%= image_tag "icons/#{serie_stat.team_a.name.downcase}.svg", class: "team-logo" %>
+          <%= f.select(:team_a_wins, [0,1,2,3,4]) %>
+        </div>
+        <div class="team">
+          <%= image_tag "icons/#{serie_stat.team_b.name.downcase}.svg", class: "team-logo" %>
+          <%= f.select(:team_b_wins, [0,1,2,3,4]) %>
+        </div>
+      </div>
+      <%= f.submit "OK", class: "btn btn-default btn-xs btn-ok" %>
+    <% end %>
+  </div>
+<% end %>

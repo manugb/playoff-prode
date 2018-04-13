@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180407205439) do
+ActiveRecord::Schema.define(version: 20180413011238) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -47,13 +47,29 @@ ActiveRecord::Schema.define(version: 20180407205439) do
     t.index ["team_id"], name: "index_players_on_team_id"
   end
 
+  create_table "serie_stats", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "serie_id"
+    t.integer  "winner_id"
+    t.integer  "loser_win_games", default: 0
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "team_a_wins",     default: 0
+    t.integer  "team_b_wins",     default: 0
+    t.index ["serie_id"], name: "index_serie_stats_on_serie_id"
+    t.index ["user_id"], name: "index_serie_stats_on_user_id"
+  end
+
   create_table "series", force: :cascade do |t|
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.integer  "team_a_id"
     t.integer  "team_b_id"
-    t.string   "round",      default: "semis"
+    t.string   "round",           default: "semis"
     t.integer  "mvp_id"
+    t.integer  "winner_team_id"
+    t.integer  "loser_win_games", default: 0
+    t.boolean  "active",          default: true
   end
 
   create_table "stats", force: :cascade do |t|

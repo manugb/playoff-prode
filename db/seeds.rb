@@ -35,10 +35,14 @@ timberwolves = Team.create!(name: "Timberwolves", conference: "west")
 
 # East Series
 
-Serie.create!(team_a: cavaliers, team_b: raptors)
-Serie.create!(team_a: celtics, team_b: wizards)
+Serie.create!(team_a: raptors, team_b: wizards, round: "quarter")
+Serie.create!(team_a: celtics, team_b: bucks, round: "quarter")
+Serie.create!(team_a: sixiers, team_b: heat, round: "quarter")
+Serie.create!(team_a: cavaliers, team_b: pacers, round: "quarter")
 
 # West Series
 
-Serie.create!(team_a: warriors, team_b: jazz)
-Serie.create!(team_a: rockets, team_b: spurs)
+Serie.create!(team_a: rockets, team_b: timberwolves, round: "quarter")
+Serie.create!(team_a: warriors, team_b: spurs, round: "quarter")
+Serie.create!(team_a: blazers, team_b: pelicans, round: "quarter")
+Serie.create!(team_a: thunder, team_b: jazz, round: "quarter")

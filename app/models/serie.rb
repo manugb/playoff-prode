@@ -5,17 +5,10 @@ class Serie < ApplicationRecord
   belongs_to :team_b, class_name: "Team", foreign_key: "team_b_id"
   has_many :matches
   belongs_to :mvp, class_name: "Player", foreign_key: "mvp_id"
-
-  after_create :create_matches
+  belongs_to :winner_team, class_name: "Team", foreign_key: "winner_team_id"
 
   def name
     "#{team_a.name} vs #{team_b.name}"
-  end
-
-  def create_matches
-    7.times do |time|
-      Match.create!(serie: self, game: time+1)
-    end
   end
 
   def is_east
@@ -27,6 +20,15 @@ class Serie < ApplicationRecord
   end
 
   def winner
+    if (matches.count > 0)
+      winner_by_matches
+    else
+      winner_team
+    end
+  end
+
+  # old - rode 2017
+  def winner_by_matches
     a_win_matches = matches.where(winner: team_a)
     b_win_matches = matches.where(winner: team_b)
     if (a_win_matches.count === 4)
@@ -51,7 +53,11 @@ class Serie < ApplicationRecord
   end
 
   def loser_win_matches
-    matches.where(winner: loser).count
+    if (matches.count > 0)
+      matches.where(winner: loser).count
+    else
+      loser_win_games
+    end
   end
 
   def teams
@@ -60,5 +66,9 @@ class Serie < ApplicationRecord
 
   def self.the_finals
     Serie.find_by(round: "the_finals")
+  end
+
+  def can_edit_stats?
+    active
   end
 end

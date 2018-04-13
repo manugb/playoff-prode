@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :stats
+  has_many :serie_stats
   belongs_to :mvp, class_name: "Player", foreign_key: "mvp_id"
   belongs_to :team
 
@@ -14,27 +15,12 @@ class User < ApplicationRecord
   end
 
   def points
-    serie_points + match_points + mvp_points
-  end
-
-  def match_points
-    stats.map(&:points).sum
+    serie_points + mvp_points
   end
 
   def serie_points
-    total = 0
-
-    Serie.all.each do |serie|
-      if serie.winner && stats.where(winner: serie.winner, match: serie.matches).count === 4
-        total += 30
-      end
-
-      if serie.loser && stats.where(winner: serie.loser, match: serie.matches).count === serie.loser_win_matches
-        total += 15
-      end
-    end
-
-    total
+    puts serie_stats
+    serie_stats.map(&:points).sum
   end
 
   def mvp_points

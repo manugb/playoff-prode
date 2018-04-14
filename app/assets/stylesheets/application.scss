@@ -16,76 +16,50 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-$cavaliers: #860038;
-$wizards: #002566;
-$raptors: #ce1141;
-$warriors: #006bb6;
-$spurs: #b6bfbf;
+//---------------------
+// Team Colors
+//---------------------
+
+$cavaliers: #6f263d;
+$wizards: #0c2340;
+$celtics: #007a33;
+$raptors: #ba0c2f;
+$sixiers: #003da5;
+$pacers: #041e42;
+$heat: #862633;
+$bucks: #00471b;
+$warriors: #003da5;
+$spurs: #c6cfd4;
 $rockets: #ce1141;
-$clippers: #ed174c;
-$celtics: #008348;
-$jazz: #002b5c;
-
-$east: #0067ac;
-$west: #ed254b;
-
-body {
-  overflow: hidden;
-}
-
-.content-container {
-  overflow: hidden;
-}
-
-.app-container {
-  overflow: hidden;
-  height: 100%;
-  width: 100%;
-}
-
-.navbar {
-  margin: 0;
-  border-radius: 0 !important;
-}
-
-.page-header {
-  margin: 0 0 10px;
-  padding: 0;
-  text-align: center;
-  color: white;
-}
-
-table {
-  th {
-    text-align: center;
-  }
-  .form-control {
-    padding: 6px 3px;
-  }
-  .game-row-data {
-    vertical-align: middle !important;
-  }
-  .row-data {
-    width: 25%;
-    padding: 8px 4px !important;
-  }
-  .no-edit {
-    vertical-align: middle;
-    height: 51px;
-  }
-}
+$jazz: #0c2340;
+$pelicans: #0c2340;
+$blazers: #c8102e;
+$thunder: #0072ce;
+$timberwolves: #002b5c;
 
 .cavaliers {
   color: $cavaliers;
 }
-.celtics {
-  color: $celtics;
-}
 .wizards {
   color: $wizards;
 }
+.celtics {
+  color: $celtics;
+}
 .raptors {
   color: $raptors;
+}
+.sixiers {
+  color: $sixiers;
+}
+.pacers {
+  color: $pacers;
+}
+.heat {
+  color: $heat;
+}
+.bucks {
+  color: $bucks;
 }
 .warriors {
   color: $warriors;
@@ -96,63 +70,120 @@ table {
 .rockets {
   color: $rockets;
 }
-.clippers {
-  color: $clippers;
-}
 .jazz {
   color: $jazz;
+}
+.pelicans {
+  color: $pelicans;
+}
+.blazers {
+  color: $blazers;
+}
+.thunder {
+  color: $thunder;
+}
+.timberwolves {
+  color: $timberwolves;
 }
 
 @mixin bgcolor($team, $color) {
   &.#{$team} {
     background-color: $color;
     color: white;
-    font-weight: bold;
-    font-size: 20px;
+  }
+}
+@mixin bordercolor($team, $color) {
+  &.#{$team} {
+    border-color: $color;
   }
 }
 
-.panel {
-  .panel-heading {
-    color: white;
-  }
-
-  .flex-header {
-    display: flex;
-    justify-content: space-around;
-  }
-
-  .team-header {
-    @include bgcolor("warriors", $warriors);
-    @include bgcolor("clippers", $clippers);
-    @include bgcolor("spurs", $spurs);
-    @include bgcolor("rockets", $rockets);
-    @include bgcolor("cavaliers", $cavaliers);
-    @include bgcolor("raptors", $raptors);
-    @include bgcolor("celtics", $celtics);
-    @include bgcolor("wizards", $wizards);
-    @include bgcolor("jazz", $jazz);
-
-    width: 100%;
-
-    .team-logo {
-      height: 50px;
-    }
-  }
+@mixin teamsbg() {
+  @include bgcolor("warriors", $warriors);
+  @include bgcolor("spurs", $spurs);
+  @include bgcolor("rockets", $rockets);
+  @include bgcolor("cavaliers", $cavaliers);
+  @include bgcolor("raptors", $raptors);
+  @include bgcolor("celtics", $celtics);
+  @include bgcolor("wizards", $wizards);
+  @include bgcolor("jazz", $jazz);
+  @include bgcolor("pelicans", $pelicans);
+  @include bgcolor("timberwolves", $timberwolves);
+  @include bgcolor("pacers", $pacers);
+  @include bgcolor("thunder", $thunder);
+  @include bgcolor("blazers", $blazers);
+  @include bgcolor("bucks", $bucks);
+  @include bgcolor("sixiers", $sixiers);
+  @include bgcolor("heat", $heat);
 }
 
-.full-height {
-  height: 100%;
-}
-.no-padding {
-  padding: 0;
+@mixin teamsborder() {
+  @include bordercolor("warriors", $warriors);
+  @include bordercolor("spurs", $spurs);
+  @include bordercolor("rockets", $rockets);
+  @include bordercolor("cavaliers", $cavaliers);
+  @include bordercolor("raptors", $raptors);
+  @include bordercolor("celtics", $celtics);
+  @include bordercolor("wizards", $wizards);
+  @include bordercolor("jazz", $jazz);
+  @include bordercolor("pelicans", $pelicans);
+  @include bordercolor("timberwolves", $timberwolves);
+  @include bordercolor("pacers", $pacers);
+  @include bordercolor("thunder", $thunder);
+  @include bordercolor("blazers", $blazers);
+  @include bordercolor("bucks", $bucks);
+  @include bordercolor("sixiers", $sixiers);
+  @include bordercolor("heat", $heat);
 }
 
-.west-container {
-  background-color: $west;
+//---------------------
+// App Layout
+//---------------------
+
+body {
+  overflow: hidden;
 }
-.east-container {
-  background-color: $east;
+
+.content-container {
+  flex: 1 1 auto;
+
+  display: flex;
+  flex-flow: row nowrap;
+
+  overflow: hidden;
+}
+
+.app-container {
+  display: flex;
+  flex-flow: column nowrap;
+
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.navbar {
+  flex: none;
+  margin: 0;
+  border-radius: 0 !important;
+}
+
+.brackets-container {
+  flex: 1 1 auto;
+
+  overflow: hidden;
+}
+
+.menu-container {
+  flex: none;
+
+  display: flex;
+  flex-flow: column nowrap;
+
+  position: relative;
+  overflow: hidden;
+
+  width: 300px;
 }
 
 .mvp-select {
@@ -168,54 +199,29 @@ table {
   padding: 15px;
 }
 
-.the-finals {
-  background-color: #000;
-}
-.the-finals-logo {
-  height: 100px;
-  background-position: center;
-  background-image: url("//cdn.nba.net/assets/playoffs/2017/images/leftrail/RW_LeftRailHeader_Finals_bkg_xxxhdpi.jpg");
-}
-
 //---------------------
 // User menu
 //---------------------
-.menu-container {
-  height: 100%;
-  overflow: hidden;
-}
+
 .user-menu {
   background-color: #090909;
   color: white;
   font-size: 15px;
-  overflow-y: auto;
+  height: 100%;
+  width: 300px;
+  padding: 20px 30px;
 
-  ::-webkit-scrollbar {
-    width: 1px; /* for vertical scrollbars */
-    height: 1px; /* for horizontal scrollbars */
-  }
-  ::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  ::-webkit-scrollbar-thumb {
-    /* barra scroll */
-    background: lighten(#090909, 15%);
-    border-radius: 20px;
-  }
+  flex: 1 1 auto;
+
+  flex-flow: column nowrap;
+
+  overflow-y: auto;
 
   .team-logo {
     border: 2px solid white;
     border-radius: 50%;
 
-    @include bgcolor("warriors", $warriors);
-    @include bgcolor("clippers", $clippers);
-    @include bgcolor("spurs", $spurs);
-    @include bgcolor("rockets", $rockets);
-    @include bgcolor("cavaliers", $cavaliers);
-    @include bgcolor("raptors", $raptors);
-    @include bgcolor("celtics", $celtics);
-    @include bgcolor("wizards", $wizards);
-    @include bgcolor("jazz", $jazz);
+    @include teamsbg();
   }
 
   .team-name {
@@ -223,8 +229,14 @@ table {
     font-weight: 600;
   }
 
-  .row {
-    margin-top: 10px;
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+
+    .team-btn {
+      @include teamsbg();
+    }
   }
 
   .points {
@@ -234,6 +246,7 @@ table {
     flex-direction: column;
 
     .user {
+      color: white !important;
       display: flex;
       justify-content: space-between;
       font-size: 14px;
@@ -241,17 +254,20 @@ table {
     }
 
     .first {
-      background-color: gold;
+      background-color: rgba(gold, 0.8);
     }
     .second {
-      background-color: silver;
+      background-color: rgba(silver, 0.8);
     }
     .third {
-      background-color: brown; // bronze
+      background-color: rgba(brown, 0.8); // bronze
     }
     .active {
       font-size: 15px;
       font-weight: bold;
+      border: 2px dashed grey;
+
+      @include teamsborder();
     }
   }
 }
@@ -261,41 +277,92 @@ table {
 //---------------------
 
 .brackets {
-  display: grid;
-  grid-gap: 10px 5px;
-  grid-template-columns: 130px 130px 130px 130px 130px 130px 130px;
+  height: 100%;
+  background-image: image-url("background.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
 
+  display: grid;
+  //grid-template-columns: 130px 130px 130px 130px 130px 130px 130px;
+  grid-template-areas:
+    "wq1 ws-1 wf finals ef es-1 eq1"
+    "wq2 ws-1 wf finals ef es-1 eq2"
+    "wq3 ws-2 wf finals ef es-2 eq3"
+    "wq4 ws-2 wf finals ef es-2 eq4";
+
+  // ROUND 1
   .west-quarter-1 {
-    grid-column: 1;
-    grid-row: 1;
+    grid-area: wq1;
+    justify-self: start;
   }
   .west-quarter-2 {
-    grid-column: 1;
-    grid-row: 2;
+    grid-area: wq2;
+    justify-self: start;
   }
   .west-quarter-3 {
-    grid-column: 1;
-    grid-row: 3;
+    grid-area: wq3;
+    justify-self: start;
   }
   .west-quarter-4 {
-    grid-column: 1;
-    grid-row: 4;
+    grid-area: wq4;
+    justify-self: start;
   }
   .east-quarter-1 {
-    grid-column: 7;
-    grid-row: 1;
+    grid-area: eq1;
+    justify-self: end;
   }
   .east-quarter-2 {
-    grid-column: 7;
-    grid-row: 2;
+    grid-area: eq2;
+    justify-self: end;
   }
   .east-quarter-3 {
-    grid-column: 7;
-    grid-row: 3;
+    grid-area: eq3;
+    justify-self: end;
   }
   .east-quarter-4 {
-    grid-column: 7;
-    grid-row: 4;
+    grid-area: eq4;
+    justify-self: end;
+  }
+
+  // SEMIS
+  .west-semis-1 {
+    grid-area: ws-1;
+    align-self: center;
+    justify-self: start;
+  }
+  .west-semis-2 {
+    grid-area: ws-2;
+    align-self: center;
+    justify-self: start;
+  }
+  .east-semis-1 {
+    grid-area: es-1;
+    align-self: center;
+    justify-self: end;
+  }
+  .east-semis-2 {
+    grid-area: es-2;
+    align-self: center;
+    justify-self: end;
+  }
+
+  // CONF FINALS
+  .west-finals {
+    grid-area: wf;
+    align-self: center;
+    justify-self: start;
+  }
+  .east-finals {
+    grid-area: ef;
+    align-self: center;
+    justify-self: end;
+  }
+
+  // FINALS
+  .the-finals {
+    grid-area: finals;
+    align-self: center;
+    justify-self: center;
   }
 
   .serie-stat {
@@ -307,7 +374,12 @@ table {
 
       .team {
         .team-logo {
-          height: 60px;
+          height: 75px;
+        }
+        .prediction {
+          color: white;
+          font-weight: bold;
+          font-size: 15px;
         }
       }
     }
@@ -316,4 +388,27 @@ table {
       align-self: center;
     }
   }
+
+  .serie-placeholder {
+    width: 130px;
+    height: 120px;
+    border: 2px dashed grey;
+  }
+}
+
+//---------------------
+// Scrollbars
+//---------------------
+
+::-webkit-scrollbar {
+  width: 7px; /* for vertical scrollbars */
+  height: 7px; /* for horizontal scrollbars */
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  /* barra scroll */
+  background: lighten(#090909, 15%);
+  border-radius: 20px;
 }

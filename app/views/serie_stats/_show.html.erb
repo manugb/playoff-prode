@@ -1,12 +1,41 @@
+<%
+  is_east = serie_stat.serie.is_east
+%>
+
 <div class="serie-stat">
-  <div class="teams">
-    <div class="team">
-      <%= image_tag "icons/#{serie_stat.team_a.name.downcase}.svg", class: "team-logo" %>
-      <%= serie_stat.winner == serie_stat.team_a ? 4 : serie_stat.loser_win_games %>
+  <% if is_east %>
+    <div class="teams">
+      <div class="team">
+        <span class="prediction">
+          <%# <%= serie_stat.winner == serie_stat.team_a ? 4 : serie_stat.loser_win_games %>
+          <%= serie_stat.team_a_wins %>
+        </span>
+        <%= image_tag "icons/#{serie_stat.team_a.name.downcase}.svg", class: "team-logo" %>
+      </div>
+      <div class="team">
+        <span class="prediction">
+          <%# <%= serie_stat.winner == serie_stat.team_b ? 4 : serie_stat.loser_win_games %>
+          <%= serie_stat.team_b_wins %>
+        </span>
+        <%= image_tag "icons/#{serie_stat.team_b.name.downcase}.svg", class: "team-logo" %>
+      </div>
     </div>
-    <div class="team">
-      <%= image_tag "icons/#{serie_stat.team_b.name.downcase}.svg", class: "team-logo" %>
-      <%= serie_stat.winner == serie_stat.team_b ? 4 : serie_stat.loser_win_games %>
+  <% else %>
+    <div class="teams">
+      <div class="team">
+        <%= image_tag "icons/#{serie_stat.team_a.name.downcase}.svg", class: "team-logo" %>
+        <span class="prediction">
+          <%# <%= serie_stat.winner == serie_stat.team_a ? 4 : serie_stat.loser_win_games %>
+          <%= serie_stat.team_a_wins %>
+        </span>
+      </div>
+      <div class="team">
+        <%= image_tag "icons/#{serie_stat.team_b.name.downcase}.svg", class: "team-logo" %>
+        <span class="prediction">
+          <%# <%= serie_stat.winner == serie_stat.team_b ? 4 : serie_stat.loser_win_games %>
+          <%= serie_stat.team_b_wins %>
+        </span>
+      </div>
     </div>
-  </div>
+  <% end %>
 </div>

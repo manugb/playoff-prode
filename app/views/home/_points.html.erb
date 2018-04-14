@@ -1,4 +1,5 @@
 <% points = @user_points.map{|up| up[:points]}.sum %>
+<%# @user_points = [{name:1, points: 2}, {name:1, points: 2}, {name:1, points: 2}, {name:1, points: 2}, {name:1, points: 2}, {name:1, points: 2}, {name:1, points: 2}, {name:1, points: 2}, {name:1, points: 2}, {name:1, points: 2}, {name:1, points: 2}] %>
 <div class="points">
   <% @user_points.each_with_index do |up, i| %>
     <%
@@ -9,7 +10,7 @@
       extra_css += " active #{current_user.team.name.downcase}" if up[:name] == current_user.name
     %>
     <div class="user <%= extra_css %>">
-      <div><%= i+1 %></div>
+      <div class="position"><%= i+1 %></div>
       <div><%= up[:name] %></div>
       <div><%= up[:points] %></div>
     </div>

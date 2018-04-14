@@ -251,6 +251,10 @@ body {
       justify-content: space-between;
       font-size: 14px;
       padding: 6px 3px;
+
+      .position {
+        opacity: 0.5;
+      }
     }
 
     .first {

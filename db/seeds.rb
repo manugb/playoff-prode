@@ -46,3 +46,13 @@ Serie.create!(team_a: rockets, team_b: timberwolves, round: "quarter")
 Serie.create!(team_a: warriors, team_b: spurs, round: "quarter")
 Serie.create!(team_a: blazers, team_b: pelicans, round: "quarter")
 Serie.create!(team_a: thunder, team_b: jazz, round: "quarter")
+
+# East Semis
+
+Serie.create!(team_a: raptors, team_b: cavaliers, round: "semis")
+Serie.create!(team_a: sixiers, team_b: celtics, round: "semis")
+
+# West Semis
+
+Serie.create!(team_a: rockets, team_b: jazz, round: "semis")
+Serie.create!(team_a: pelicans, team_b: warriors, round: "semis")

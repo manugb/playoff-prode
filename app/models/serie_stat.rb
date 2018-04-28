@@ -15,8 +15,17 @@ class SerieStat < ApplicationRecord
 
   def points
     total = 0
-    if serie.winner
-      if winner == serie.winner
+    puts serie.winner_team
+    puts serie.winner_team
+    puts winner
+    puts winner
+
+    puts serie.loser_win_games
+    puts serie.loser_win_games
+    puts loser_win_games
+    puts loser_win_games
+    if serie.winner_team && winner
+      if winner.id == serie.winner_team_id
         total += 10
       end
       if loser_win_games == serie.loser_win_games

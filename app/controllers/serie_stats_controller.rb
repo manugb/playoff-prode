@@ -48,11 +48,15 @@ class SerieStatsController < ApplicationController
     loser_win_games = team_a_wins if team_a_wins < 4
     loser_win_games = team_b_wins if team_b_wins < 4
 
-    serie_stat_params[:winner_id] = winner.id
-    serie_stat_params[:loser_win_games] = loser_win_games
+    update_params = {
+      team_a_wins: team_a_wins,
+      team_b_wins: team_b_wins,
+      winner_id: winner.id,
+      loser_win_games: loser_win_games
+    }
 
     respond_to do |format|
-      if @serie_stat.update(serie_stat_params)
+      if @serie_stat.update(update_params)
         format.html { redirect_to :dashboard, notice: 'Tu apuesta fue ingresada.' }
         format.json { render :show, status: :ok, location: @serie_stat }
       else

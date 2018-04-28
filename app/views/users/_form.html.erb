@@ -18,9 +18,9 @@
     </div>
   </div>
   <div class="form-group">
-    <%= f.label "Equipo Favorito", class: "col-sm-2 control-label" %>
+    <%= f.label "Finals MVP", class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
-      <%= f.select(:team_id, Team.all.map{|t| [t.name, t.id]}, {prompt: "Elegi tu equipo"}, {class: "form-control"}) %>
+      <%= f.text_field :mvp_name, class: "form-control" %>
     </div>
   </div>
 

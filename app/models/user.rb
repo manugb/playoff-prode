@@ -19,7 +19,6 @@ class User < ApplicationRecord
   end
 
   def serie_points
-    puts serie_stats
     serie_stats.map(&:points).sum
   end
 

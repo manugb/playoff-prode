@@ -25,7 +25,11 @@
       <%= link_to 'Salir', destroy_user_session_path, method: :delete, class: "btn btn-default" %>
     </div>
     <div>
-      <%= link_to 'Editar perfil', edit_user_path(current_user), class: "btn btn-primary team-btn #{current_user.team.name.downcase}" %>
+      <% if current_user.team.present? %>
+        <%= link_to 'Editar perfil', edit_user_path(current_user), class: "btn btn-primary team-btn #{current_user.team.name.downcase}" %>
+      <% else %>
+        <%= link_to 'Editar perfil', edit_user_path(current_user), class: "btn btn-primary team-btn" %>
+      <% end %>
     </div>
   </div>
 

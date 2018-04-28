@@ -416,3 +416,17 @@ body {
   background: lighten(#090909, 15%);
   border-radius: 20px;
 }
+
+//---------------------
+// Mobile media queries
+//---------------------
+
+@media only screen and (max-width: 600px) {
+  .menu-container {
+    display: none;
+  }
+
+  .brackets {
+    overflow: auto;
+  }
+}

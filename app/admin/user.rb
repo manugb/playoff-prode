@@ -12,9 +12,14 @@ ActiveAdmin.register User do
 #   permitted
 # end
 
+  permit_params :name, :team_id, :mvp_name
+
   index do
     id_column
     column :name
+    column :email
+    column :team
+    column :mvp_name
     actions
   end
 

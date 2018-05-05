@@ -7,6 +7,13 @@ class Serie < ApplicationRecord
   belongs_to :mvp, class_name: "Player", foreign_key: "mvp_id"
   belongs_to :winner_team, class_name: "Team", foreign_key: "winner_team_id"
 
+  ROUND_POINTS = {
+    quarter: {winner: 6, loser_wins: 3},
+    semis: {winner: 8, loser_wins: 4},
+    conference_finals: {winner: 10, loser_wins: 5},
+    the_finals: {winner: 12, loser_wins: 6},
+  }
+
   def name
     "#{team_a.name} vs #{team_b.name}"
   end
@@ -70,5 +77,13 @@ class Serie < ApplicationRecord
 
   def can_edit_stats?
     active
+  end
+
+  def winner_points
+    ROUND_POINTS[round.to_sym][:winner]
+  end
+
+  def loser_wins_points
+    ROUND_POINTS[round.to_sym][:loser_wins]
   end
 end

@@ -24,4 +24,17 @@ ActiveAdmin.register Serie do
     actions
   end
 
+  form do |f|
+    f.semantic_errors
+    f.inputs do
+      f.input :round, as: :select, collection: {"Round 1" => "quarter", "Semis" => "semis", "Final de Conferencia" => "conference_finals", "The Finals" => "the_finals"}
+      f.input :active
+      f.input :team_a
+      f.input :team_b
+      f.input :winner_team
+      f.input :loser_win_games
+    end
+    f.actions
+  end
+
 end

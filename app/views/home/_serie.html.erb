@@ -1,6 +1,10 @@
-<% serie_stat = SerieStat.find_by(user: current_user, serie: serie) || SerieStat.create!(user: current_user, serie: serie) %>
-<% if serie.can_edit_stats? %>
-  <%= render "serie_stats/form", serie_stat: serie_stat %>
+<% if serie.present? %>
+  <% serie_stat = SerieStat.find_by(user: current_user, serie: serie) || SerieStat.create!(user: current_user, serie: serie) %>
+  <% if serie.can_edit_stats? %>
+    <%= render "serie_stats/form", serie_stat: serie_stat %>
+  <% else %>
+    <%= render "serie_stats/show", serie_stat: serie_stat %>
+  <% end %>
 <% else %>
-  <%= render "serie_stats/show", serie_stat: serie_stat %>
+  <div class="serie-placeholder"></div>
 <% end %>

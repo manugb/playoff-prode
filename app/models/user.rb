@@ -15,7 +15,8 @@ class User < ApplicationRecord
   end
 
   def points
-    serie_points + mvp_points
+    total = serie_points + mvp_points
+    total.round(2)
   end
 
   def serie_points

@@ -16,7 +16,7 @@ class HomeController < ApplicationController
     quarters = Serie.where(round: "quarter").order(:created_at)
     semis = Serie.where(round: "semis").order(:created_at)
     conference_finals = Serie.where(round: "conference_finals").order(:created_at)
-    the_finals = Serie.the_finals
+    @the_finals = Serie.the_finals
 
     @west_quarters = quarters.select(&:is_west)
     @east_quarters = quarters.select(&:is_east)

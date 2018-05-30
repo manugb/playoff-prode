@@ -391,6 +391,28 @@ body {
     .btn-ok {
       align-self: center;
     }
+
+    &.finals {
+      flex-direction: column;
+      .teams {
+        flex-direction: row;
+        .team {
+          display: flex;
+          flex-direction: column;
+        }
+        .team-logo {
+          height: 125px;
+        }
+        select {
+          width: 60px;
+          align-self: center;
+        }
+        btn-ok {
+          position: relative;
+          bottom: -20px; // moverlo para abajo pero dejando los equipos alineados
+        }
+      }
+    }
   }
 
   .serie-placeholder {

@@ -1,6 +1,7 @@
 class User < ApplicationRecord
-  include Current
-
+  # lo distinto con Current es q quiero q sea mayor a 2018
+  # para q tome en cuenta los users de antes para adelante
+  default_scope { where("created_at > 2018") }
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :stats

@@ -1,12 +1,7 @@
 <div class="user-menu">
   <% if current_user.team.present? %>
     <div class="text-center">
-        <%= image_tag "icons/#{current_user.team.name.downcase}.svg", class: "team-logo #{current_user.team.name.downcase}" %>
-    </div>
-    <div class="text-center">
-      <div class="<%= current_user.team.name.downcase %> team-name">
-        <%= current_user.team.name %>
-      </div>
+      <%= image_tag "icons/#{current_user.team.name.downcase}.svg", class: "team-logo #{current_user.team.name.downcase}" %>
     </div>
   <% else %>
     <div class="text-center">

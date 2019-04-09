@@ -240,7 +240,7 @@ body {
 //---------------------
 
 .user-menu {
-  background-color: #090909;
+  background-color: #090909d9;
   color: white;
   font-size: 15px;
   height: 100%;
@@ -254,10 +254,10 @@ body {
   overflow-y: auto;
 
   .team-logo {
-    border: 2px solid white;
-    border-radius: 50%;
+    // border: 2px solid white;
+    // border-radius: 50%;
     width: 150px;
-    @include teamsbg();
+    // @include teamsbg();
   }
 
   .team-name {

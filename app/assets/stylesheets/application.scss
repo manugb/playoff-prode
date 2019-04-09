@@ -139,12 +139,12 @@ $timberwolves: #002b5c;
   @include bgcolor("bucks", $bucks);
   @include bgcolor("sixiers", $sixiers);
   @include bgcolor("heat", $heat);
-  @include bgColor("nets", $nets);
-  @include bgColor("magic", $magic);
-  @include bgColor("pistons", $pistons);
-  @include bgColor("hornets", $hornets);
-  @include bgColor("nuggets", $nuggets);
-  @include bgColor("clippers", $clippers);
+  @include bgcolor("nets", $nets);
+  @include bgcolor("magic", $magic);
+  @include bgcolor("pistons", $pistons);
+  @include bgcolor("hornets", $hornets);
+  @include bgcolor("nuggets", $nuggets);
+  @include bgcolor("clippers", $clippers);
 }
 
 @mixin teamsborder() {

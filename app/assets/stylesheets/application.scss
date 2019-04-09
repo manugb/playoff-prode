@@ -20,6 +20,12 @@
 // Team Colors
 //---------------------
 
+$nets: #000000;
+$magic: #0077c0;
+$pistons: #c8102e;
+$hornets: #1d1160;
+$nuggets: #0e2240;
+$clippers: #c8102e;
 $cavaliers: #6f263d;
 $wizards: #0c2340;
 $celtics: #007a33;
@@ -85,6 +91,24 @@ $timberwolves: #002b5c;
 .timberwolves {
   color: $timberwolves;
 }
+.nets {
+  color: $nets;
+}
+.magic {
+  color: $magic;
+}
+.pistons {
+  color: $pistons;
+}
+.hornets {
+  color: $hornets;
+}
+.nuggets {
+  color: $nuggets;
+}
+.clippers {
+  color: $clippers;
+}
 
 @mixin bgcolor($team, $color) {
   &.#{$team} {
@@ -115,6 +139,12 @@ $timberwolves: #002b5c;
   @include bgcolor("bucks", $bucks);
   @include bgcolor("sixiers", $sixiers);
   @include bgcolor("heat", $heat);
+  @include bgColor("nets", $nets);
+  @include bgColor("magic", $magic);
+  @include bgColor("pistons", $pistons);
+  @include bgColor("hornets", $hornets);
+  @include bgColor("nuggets", $nuggets);
+  @include bgColor("clippers", $clippers);
 }
 
 @mixin teamsborder() {
@@ -134,6 +164,12 @@ $timberwolves: #002b5c;
   @include bordercolor("bucks", $bucks);
   @include bordercolor("sixiers", $sixiers);
   @include bordercolor("heat", $heat);
+  @include bordercolor("nets", $nets);
+  @include bordercolor("magic", $magic);
+  @include bordercolor("pistons", $pistons);
+  @include bordercolor("hornets", $hornets);
+  @include bordercolor("nuggets", $nuggets);
+  @include bordercolor("clippers", $clippers);
 }
 
 //---------------------

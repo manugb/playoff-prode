@@ -5,12 +5,15 @@ class Team < ApplicationRecord
 
   POINTS_MULTIPLIER = {
     warriors: 1.1,
-    cavaliers: 1.1,
     rockets: 1.1,
-    raptors: 1.2,
+    bucks: 1.1,
+    raptors: 1.1,
     blazers: 1.2,
-    jazz: 1.3,
-    sixiers: 1.3
+    jazz: 1.2,
+    sixiers: 1.2,
+    celtics: 1.2,
+    thunder: 1.2,
+    magic: 1.4
   }
 
   def players_options
@@ -18,6 +21,6 @@ class Team < ApplicationRecord
   end
 
   def points_multiplier
-    POINTS_MULTIPLIER[name.downcase.to_sym]
+    POINTS_MULTIPLIER[name.downcase.to_sym] || 1
   end
 end

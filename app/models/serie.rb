@@ -8,10 +8,10 @@ class Serie < ApplicationRecord
   belongs_to :winner_team, class_name: "Team", foreign_key: "winner_team_id"
 
   ROUND_POINTS = {
-    quarter: {winner: 6, loser_wins: 3},
-    semis: {winner: 8, loser_wins: 4},
-    conference_finals: {winner: 10, loser_wins: 5},
-    the_finals: {winner: 12, loser_wins: 6},
+    quarter:           { winner: 4,  loser_wins: 2  },
+    semis:             { winner: 8,  loser_wins: 4  },
+    conference_finals: { winner: 16, loser_wins: 8  },
+    the_finals:        { winner: 25, loser_wins: 12 },
   }
 
   def name

@@ -15,7 +15,7 @@ class HomeController < ApplicationController
   end
 
   def dashboard
-    @user_points = User.all.map {|u| {name: u.name, points: u.points}}.sort {|x,y| y[:points] <=> x[:points] }
+    @user_points = User.where(active: true).map {|u| {name: u.name, points: u.points}}.sort {|x,y| y[:points] <=> x[:points] }
 
     quarters = Serie.where(round: "quarter").order(:created_at)
     semis = Serie.where(round: "semis").order(:created_at)

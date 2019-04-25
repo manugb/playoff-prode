@@ -12,7 +12,7 @@ ActiveAdmin.register User do
 #   permitted
 # end
 
-  permit_params :name, :team_id, :mvp_name, :email, :password
+  permit_params :name, :team_id, :mvp_name, :email, :password, :active
 
   index do
     id_column
@@ -20,6 +20,7 @@ ActiveAdmin.register User do
     column :email
     column :team
     column :mvp_name
+    column :active
     actions
   end
 
@@ -31,6 +32,7 @@ ActiveAdmin.register User do
       f.input :mvp_name
       f.input :email
       f.input :password
+      f.input :active
     end
     f.actions
   end

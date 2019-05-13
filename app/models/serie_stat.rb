@@ -18,12 +18,16 @@ class SerieStat < ApplicationRecord
     if serie.winner_team && winner
       if winner == serie.winner_team
         total += serie.winner_points
-      end
-      if loser_win_games == serie.loser_win_games
-        total += serie.loser_wins_points
-      end
-      if serie.winner_team == user.team
-        total *= user.team.points_multiplier
+
+        # Add perfect score points only if the winner is correct
+        if loser_win_games == serie.loser_win_games
+          total += serie.loser_wins_points
+        end
+
+        # Multuply only if the winner is correct
+        if serie.winner_team == user.team
+          total *= user.team.points_multiplier
+        end
       end
     end
 
